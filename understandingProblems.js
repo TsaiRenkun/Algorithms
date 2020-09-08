@@ -11,21 +11,13 @@ const charCount = (str) => {
     //make object to return at the end
     var result = {}
     //loop over string, for each character..
-    for(i = 0; i < str.length; i++) {
-        var char = str[i]
+    for(var char of str) {
+        char = char.toLowerCase();
         //if the char is a number/letter AND is a key in object, add one to count
         if(/[a-z0-9]/.test(char)){
-            if(result[char] > 0){
-                result[char]++;
-            }
-            //if the char is a number/letter AND not in object, add it to object and set value to 1
-            else {
-                result[char] = 1;
-            };
+                result[char] = ++result[char] || 1;
         }
     }
-        //if character is something else (space) dont do anything
-        
     //return object at end
     return result;
 }
