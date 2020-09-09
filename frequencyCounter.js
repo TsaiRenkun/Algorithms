@@ -46,7 +46,6 @@ function validAnagram(str1, str2) {
 
     //then compare both objects and keys to see if they match
     for(var key in obj1){
-        console.log(key)
         if(!(key in obj2)){
             return false
         }
@@ -55,4 +54,4 @@ function validAnagram(str1, str2) {
     return true
 }
 
-console.log(validAnagram("car", "caat"))
+console.log(validAnagram("cat", "cat"))
