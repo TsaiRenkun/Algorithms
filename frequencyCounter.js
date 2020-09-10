@@ -33,23 +33,22 @@ function validAnagram(str1, str2) {
     }
     //create a object to store the letters in each string as a key
     var obj1 = {}
-    var obj2 = {}
+
     for (var key in str1){
-        obj1[str1[key]] = (obj1[str1[key]] || 0) + 1
+        obj1[str1[key]] ? obj1[str1[key]] += 1 : obj1[str1[key]] = 1
     }
     for (var key in str2){
-        obj2[str2[key]] = (obj2[str2[key]] || 0) + 1
+        if(!obj1[str2[key]]){
+            return false
+        }
+        else{
+            obj1[str2[key]] -= 1;
+        }
     }
 
     console.log(obj1)
-    console.log(obj2)
 
     //then compare both objects and keys to see if they match
-    for(var key in obj1){
-        if(!(key in obj2)){
-            return false
-        }
-    }
     //return 
     return true
 }
