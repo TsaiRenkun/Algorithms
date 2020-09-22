@@ -10,17 +10,16 @@ function minSubArrayLen(arr,num){
             total += arr[end];
             end ++
         } 
-        else if (total >= sum){
+        else if (total >= num){
             minLen = Math.min(minLen, end-start);
-            total -= nums[start]
+            total -= arr[start]
             start ++
         } else {
             break;
         }
-        return minLen === Infinity ? 0 : minLen 
     }
     
-    
+    return minLen === Infinity ? 0 : minLen 
     
 }
 
